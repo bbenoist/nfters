@@ -1,0 +1,8 @@
+{
+  "files.associations": {
+    "*.json": "jsonc"
+  },
+  "editor.formatOnSave": true,
+  "eslint.workingDirectories": [{ "mode": "auto" }],
+  "prettier.prettierPath": "common/autoinstallers/rush-prettier/node_modules/.bin/prettier"
+}

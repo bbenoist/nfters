@@ -1,0 +1,71 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  _id: String!
+  account: String!
+  name: String
+  image: String
+}
+
+type Bid {
+  _id: String!
+  value: Float!
+}
+
+type Nft {
+  _id: String!
+  title: String!
+  author: User!
+  end: DateTime!
+  imageUrl: String!
+  category: Category!
+  startingPrice: Float
+  bids: [Bid!]!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+enum Category {
+  art
+  celebrities
+  gaming
+  sport
+  music
+  crypto
+}
+
+type GetSignedUploadUrlOutput {
+  uploadUrl: String!
+  downloadUrl: String!
+}
+
+type Query {
+  getNft(id: String!): Nft!
+  getNfts(filter: GetNftsInput): [Nft!]!
+  getBid(id: String!): Bid!
+  getBids: [Bid!]!
+}
+
+input GetNftsInput {
+  category: Category
+}
+
+type Mutation {
+  createNft(data: CreateNftInput!): Nft!
+  placeBid(nft: String!, value: Float!): Bid!
+  getSignedUploadUrl: GetSignedUploadUrlOutput!
+}
+
+input CreateNftInput {
+  title: String!
+  end: DateTime!
+  imageUrl: String!
+  category: Category!
+  startingPrice: Float
+  authorAccount: String!
+}
