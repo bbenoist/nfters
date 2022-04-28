@@ -17,7 +17,7 @@ aws_access_key_id = YOUR_AWS_ACCESS_KEY_ID
 aws_secret_access_key = YOUR_AWS_SECRET_ACCESS_KEY
 ```
 
-This account must have write access to the bucket to that the backend is able to generate signed upload URLs.
+This account must have write access to the bucket so that the backend is able to generate signed upload URLs.
 
 ## NPM Dependencies
 
