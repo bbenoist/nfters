@@ -11,7 +11,7 @@ import { CreateNftModal } from '../components/nav-bar/create-nft-modal';
 import { PlaceBidModal } from '../components/place-bid-modal';
 
 const apolloClient = new ApolloClient({
-  uri: 'http://localhost:3001/graphql',
+  uri: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/graphql',
   cache: new InMemoryCache(),
   defaultOptions: { query: { fetchPolicy: 'no-cache', errorPolicy: 'all' } },
   ssrForceFetchDelay: 200

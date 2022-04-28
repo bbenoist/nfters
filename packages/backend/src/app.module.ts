@@ -15,6 +15,9 @@ const MONGO_URL = process.env.MONGO_URL || 'mongodb://localhost/nfters';
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: joinPath(process.cwd(), 'src/schema.gql'),
+      cors: {
+        origin: process.env.NEXT_PUBLIC_URL || 'http://localhost:3000',
+      },
     }),
     MongooseModule.forRoot(MONGO_URL),
     ModelModule,

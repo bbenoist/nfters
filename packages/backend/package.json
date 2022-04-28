@@ -42,7 +42,8 @@
     "class-transformer": "0.5.1",
     "dataloader": "2.1.0",
     "mongodb": "4.5.0",
-    "luxon": "2.3.2"
+    "luxon": "2.3.2",
+    "cors": "~2.8.5"
   },
   "devDependencies": {
     "@nestjs/cli": "8.2.3",
