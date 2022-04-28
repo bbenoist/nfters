@@ -8,6 +8,9 @@ const S3_REGION = process.env.S3_REGION || 'eu-west-3';
 
 const S3_BUCKET = process.env.S3_BUCKET || 'nfters';
 
+const S3_ENDPOINT =
+  process.env.S3_ENDPOINT || `https://${S3_BUCKET}.s3.amazonaws.com`;
+
 @Resolver('S3')
 export class S3Resolver {
   // Create an Amazon S3 service client object.
@@ -20,7 +23,7 @@ export class S3Resolver {
     const uploadUrl = await getSignedUrl(this.s3, command, {
       expiresIn: 3600,
     });
-    const downloadUrl = `https://${S3_BUCKET}.s3.amazonaws.com/${key}`;
+    const downloadUrl = `${S3_ENDPOINT}/${key}`;
     return { uploadUrl, downloadUrl };
   }
 }
